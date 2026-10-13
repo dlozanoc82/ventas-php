@@ -36,3 +36,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $error = "Correo o contraseña invalida";
 }
+
+require_once __DIR__ . "/../views/auth/login.php";
