@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["usuario_id"])) {
+if (isset($_SESSION["usuario_id"])) {
     header("Location: /ventas-php/productos/listar.php");
     exit;
 }
@@ -22,19 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute([":correo" => $correo]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
     if ($usuario && password_verify($clave, $usuario["password"])) {
         session_regenerate_id(true);
-
         $_SESSION["usuario_id"] = $usuario["id"];
         $_SESSION["usuario_nombre"] = $usuario["nombre"];
         $_SESSION["usuario_correo"] = $usuario["correo"];
-
         header("Location: /ventas-php/productos/listar.php");
         exit;
     }
-
-    $error = "Correo o contraseña invalida";
+    $error = "Correo o contraseña incorrectos.";
 }
 
-require_once __DIR__ . "/../views/auth/login.php";
+require __DIR__ . "/../views/auth/login.php";

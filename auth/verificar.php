@@ -5,5 +5,5 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 if (!isset($_SESSION["usuario_id"])) {
-    header("Location: /ventas-php/auth/login.php");
+    header("Location: /ventas-php/views/auth/login.php");
 }

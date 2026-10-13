@@ -19,7 +19,7 @@
             </p>
         <?php endif; ?>
 
-        <form action="../../auth/login.php" method="POST">
+        <form action="/ventas-php/auth/login.php" method="POST">
             <label for="correo">Correo</label>
             <input id="correo" type="email" name="correo" required />
 

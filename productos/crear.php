@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . "/../auth/verificar.php";
 require_once "../config/conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
